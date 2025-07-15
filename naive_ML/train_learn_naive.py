@@ -25,13 +25,13 @@ def clean_and_prepare_data(file_path):
     non_numeric_cols = df.select_dtypes(include=['object']).columns
     print(f"Colonnes non-numériques : {list(non_numeric_cols)}")
     
-    # Nettoyer les données
+  
     df_clean = df.copy()
     
-    # 1. Supprimer les colonnes complètement vides
+  
     df_clean = df_clean.dropna(axis=1, how='all')
     
-    # 2. Traiter les colonnes non-numériques
+   
     for col in non_numeric_cols:
         if col in df_clean.columns:
             # Essayer de convertir en numérique
@@ -59,7 +59,7 @@ def create_sequences(data, sequence_length=50):
     sequences = []
     targets = []
     
-    # Supposons que la dernière colonne est le target (prix à prédire)
+   
     features = data.iloc[:, :-1].values
     target = data.iloc[:, -1].values
     
